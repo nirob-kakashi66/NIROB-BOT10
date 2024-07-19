@@ -17,7 +17,7 @@
     "ignoreCommand": []
   },
   "adminBot": [
-    "100000768468627",
+    "100072320790038",
     "100030205562796",
     "",
     "",
@@ -36,10 +36,10 @@
     "whiteListIds": [],
     "notes": "if you enable this feature, only the ids in the whiteListIds section can use the bot"
   },
-  "nickNameBot": "𓆩X-NiL‣᭄𓆪-143🔥",
-  "authorName": "𝐗𝐍𝐈𝐋",
-  "authorFB": "https://www.facebook.com/xnilxhowdhury143",
-  "authorEmail": "xnilxhowdhury@gmail.com",
+  "nickNameBot": "𓆩X-Ex-143🔥",
+  "authorName": "SOIKOT",
+  "authorFB": "https://www.facebook.com/mdsakhoyat.hosen.9",
+  "authorEmail": "bdsoikotho@gmail.com",
   "prefix": "/",
   "database": {
     "type": "sqlite",
