@@ -1,4 +1,4 @@
-name: Node.js CI
+name: GoatBot CI
 
 on:
   push:
@@ -7,23 +7,33 @@ on:
     branches: [ main ]
 
 jobs:
-  build:
+  run-goatbot:
     runs-on: ubuntu-latest
 
     steps:
       - name: Checkout repository
         uses: actions/checkout@v3
 
-      - name: Set up Node.js
+      - name: Set up Node.js 16
         uses: actions/setup-node@v3
         with:
-          node-version: '18'
+          node-version: '16'
 
       - name: Install dependencies
         run: npm install
 
-      - name: Skip tests (no test script found)
-        run: echo "No test script defined, skipping tests."
+      - name: Check for entry file
+        run: |
+          if [ -f "index.js" ]; then
+            echo "Found index.js"
+          elif [ -f "main.js" ]; then
+            echo "Found main.js"
+          else
+            echo "No entry file found!"
+            exit 1
+          fi
 
-      - name: Build finished
-        run: echo "Build completed successfully."
+      - name: Start GoatBot (for test run)
+        run: |
+          echo "Starting GoatBot..."
+          node index.js || node main.js
