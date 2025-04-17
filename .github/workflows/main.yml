@@ -1,4 +1,4 @@
-name: GoatBot CI
+name: Node.js CI
 
 on:
   push:
@@ -7,33 +7,20 @@ on:
     branches: [ main ]
 
 jobs:
-  run-goatbot:
+  build:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout repository
-        uses: actions/checkout@v3
+      - name: Checkout code
+        uses: actions/checkout@v2
 
-      - name: Set up Node.js 16
+      - name: Use Node.js 20.x
         uses: actions/setup-node@v3
         with:
-          node-version: '16'
+          node-version: 20.x
 
       - name: Install dependencies
         run: npm install
 
-      - name: Check for entry file
-        run: |
-          if [ -f "index.js" ]; then
-            echo "Found index.js"
-          elif [ -f "main.js" ]; then
-            echo "Found main.js"
-          else
-            echo "No entry file found!"
-            exit 1
-          fi
-
-      - name: Start GoatBot (for test run)
-        run: |
-          echo "Starting GoatBot..."
-          node index.js || node main.js
+      - name: Start the app
+        run: npm start
